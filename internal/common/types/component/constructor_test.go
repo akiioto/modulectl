@@ -124,7 +124,7 @@ func TestConstructor_AddImageAsResource(t *testing.T) {
 
 	require.Len(t, constructor.Components[0].Resources, 1)
 	resource := constructor.Components[0].Resources[0]
-	require.Equal(t, component.OCIArtifactResourceType, resource.Type)
+	require.Equal(t, "ociArtifact/v1", resource.Type)
 	require.Equal(t, component.OCIArtifactResourceRelation, resource.Relation)
 	require.Len(t, resource.Labels, 2)
 
@@ -135,7 +135,7 @@ func TestConstructor_AddImageAsResource(t *testing.T) {
 	require.Equal(t, common.OriginalImageReferenceLabelKey, resource.Labels[1].Name)
 	require.Equal(t, imageInfo.FullURL, resource.Labels[1].Value)
 	require.Equal(t, common.OCMVersion, resource.Labels[1].Version)
-	require.Equal(t, component.OCIArtifactAccessType, resource.Access.Type)
+	require.Equal(t, "ociRegistry", resource.Access.Type)
 	require.Equal(t, imageInfo.FullURL, resource.Access.ImageReference)
 }
 
