@@ -304,7 +304,7 @@ func TestService_AddImagesToConstructor_SingleImage(t *testing.T) {
 
 	imageResource := imageResources[0]
 	require.Equal(t, "ociArtifact/v1", imageResource.Type)
-	require.Equal(t, component.OCIArtifactResourceRelation, imageResource.Relation)
+	require.Equal(t, "external", imageResource.Relation)
 	require.Equal(t, "ghcr.io/example/test-image:v2.1.3", imageResource.Access.ImageReference)
 	require.Equal(t, "ociRegistry", imageResource.Access.Type)
 	require.NotEmpty(t, imageResource.Name)
